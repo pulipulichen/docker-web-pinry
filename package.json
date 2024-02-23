@@ -1,0 +1,41 @@
+{
+  "name": "docker-web-MEME-PAM-Explorer",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker-compose down;docker-compose up --build",
+    "start-windows": "docker compose up --build",
+    "commit-docker-image": "docker-compose build; bash ./docker-build/image/commit-docker-image.sh",
+    "reset-start": "rm -rf ./docker-web-MEME-PAM-Explorer; docker-compose up --build",
+    "d0.build": "docker-compose build",
+    "d1.bash": "docker-compose run --service-ports app bash /console.sh",
+    "save-conf": "bash ./docker-build/save-conf.sh",
+    "remove-containers": "docker rm $(docker ps -a --filter \"name=docker-web-meme-pam-explorer-\" -q)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://pulipuli.chen@gmail.com@github.com/pulipulichen/docker-web-MEME-PAM-Explorer.git"
+  },
+  "keywords": [
+    "PWA"
+  ],
+  "author": "Pulipuli Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pulipulichen/docker-web-MEME-PAM-Explorer/issues"
+  },
+  "homepage": "https://github.com/pulipulichen/docker-web-MEME-PAM-Explorer#readme",
+  "dependencies": {
+    "@hapi/hapi": "21.3.2",
+    "@hapi/vision": "7.0.3",
+    "@hapi/inert": "7.1.0",
+    "redbean-node": "0.3.3",
+    "pg": "8.11.3",
+    "pg-hstore": "2.3.4",
+    "sqlite3": "5.1.7",
+    "better-sqlite3": "9.3.0",
+    "xlsx": "0.18.5",
+    "handlebars": "4.7.8"
+  }
+}
